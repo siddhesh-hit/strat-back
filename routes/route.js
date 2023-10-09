@@ -364,7 +364,7 @@ router.post("/reset", async (req, res) => {
 });
 
 router.post("/register", (req, res) => {
-  // res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Origin", "*");
 
   const username = req.body.username;
   const email = req.body.email;
@@ -417,7 +417,7 @@ router.post("/login", (req, res) => {
   const identifier = req.body.identifier;
   const password = md5(req.body.password);
   conn.query(
-    "SELECT `id`, `admin` FROM `up_users` WHERE `email` ='" +
+    "SELECT * FROM `up_users` WHERE `email` ='" +
       identifier +
       "' AND `password` ='" +
       password +
@@ -730,6 +730,17 @@ router.get("/allLists", (req, res) => {
       res.json(result);
     }
   );
+});
+
+router.get("/adminRole", (req, res) => {
+  res.header("Access-Control-Allow-Origin", "*");
+
+  conn.query("SELECT * FROM `admin_users`", (err, result) => {
+    const email = result[0].email;
+    const password = md5(result[0].password);
+
+    res.json({ email, password });
+  });
 });
 
 module.exports = router;
