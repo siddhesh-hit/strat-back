@@ -9,7 +9,7 @@ const mysql = require("mysql");
 // });
 
 const conn = mysql.createConnection({
-  host: "localhost",
+  host: "81.0.246.139",
   port: 3306,
   database: "strategytool",
   user: "strategytooluser",

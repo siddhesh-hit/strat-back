@@ -43,8 +43,9 @@ app.use("/api", routerStrategy);
 conn.connect((err) => {
   if (err) {
     console.log(err, "error");
+  } else {
+    console.log("mysql Connected...");
   }
-  console.log("mysql Connected...");
 });
 
 const PORT = process.env.PORT || 5000;
