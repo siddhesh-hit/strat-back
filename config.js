@@ -9,11 +9,11 @@ const mysql = require("mysql");
 // });
 
 const conn = mysql.createConnection({
-  host: env("DATABASE_HOST", "localhost"),
-  port: env.int("DATABASE_PORT", 3306),
-  database: env("DATABASE_NAME", "strategytool"),
-  user: env("DATABASE_USERNAME", "strategytooluser"),
-  password: env("DATABASE_PASSWORD", "Ekk#hy&2e%~y"),
-  ssl: env.bool("DATABASE_SSL", false),
+  host: "localhost",
+  port: 3306,
+  database: "strategytool",
+  user: "strategytooluser",
+  password: "Ekk#hy&2e%~y",
+  ssl: false,
 });
 module.exports = conn; // Export the connection object
